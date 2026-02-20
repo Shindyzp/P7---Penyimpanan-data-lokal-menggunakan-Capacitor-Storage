@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Deret Prima dari NIM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Card untuk Input NIM -->
+  <ion-card class="input-card">
+    <ion-card-header>
+      <ion-card-title>Generator Bilangan Prima</ion-card-title>
+      <p class="card-subtitle">Masukkan NIM Anda untuk menghitung deret bilangan prima secara otomatis.</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        type="text"
+        label="Nomor Induk Mahasiswa"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Contoh: 220511004"
+        [(ngModel)]="nimInput"
+        (keyup.enter)="generatePrimesFromNim()">
+      </ion-input>
+      <ion-button expand="block" (click)="generatePrimesFromNim()" class="generate-button ion-margin-top">
+        <ion-icon name="calculator-outline" slot="start"></ion-icon>
+        Hitung Deret
+      </ion-button>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Card untuk Hasil -->
+  <ion-card class="result-card" *ngIf="primes.length > 0">
+    <ion-card-header>
+      <ion-card-title>Hasil (Batas: {{ calculatedLimit }})</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="result-text-container">
+        <span *ngFor="let prime of primes" class="prime-chip">
+          {{ prime }}
+        </span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

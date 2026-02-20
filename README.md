@@ -81,7 +81,89 @@ Untuk data sensitif sebaiknya menggunakan enkripsi atau autentikasi berbasis ser
 
 ## 🚀 Cara Menjalankan Project
 
-1. Install dependencies:
+### Prerequisites
+Pastikan sudah install:
+- **Node.js** (v16+): [nodejs.org](https://nodejs.org)
+- **npm** atau **yarn** (biasanya terinstall otomatis dengan Node.js)
+- **Ionic CLI**: 
+  ```bash
+  npm install -g @ionic/cli
+  ```
+- **Git** (untuk clone): [git-scm.com](https://git-scm.com)
+
+### Langkah Instalasi & Menjalankan
+
+1. **Clone repository dari GitHub**
+   ```bash
+   git clone https://github.com/Shindyzp/P7---Penyimpanan-data-lokal-menggunakan-Capacitor-Storage.git
+   cd ionic-ui-components
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Jalankan development server**
+   ```bash
+   ionic serve
+   ```
+   Aplikasi akan membuka di browser `http://localhost:8100`
+
+4. **Untuk testing di Android emulator/device**
+   ```bash
+   # Build untuk Android
+   npm run build
+   ionic capacitor add android
+   ionic capacitor open android
+   # Kemudian build dan run via Android Studio
+   ```
+
+5. **Untuk testing di iOS (Mac only)**
+   ```bash
+   ionic capacitor add ios
+   ionic capacitor open ios
+   # Kemudian build dan run via Xcode
+   ```
+
+### Struktur Project
+```
+src/
+├── app/
+│   ├── about/                    # Halaman About
+│   ├── daftar-mahasiswa/         # Data Mahasiswa
+│   ├── deret-bilangan-prima/     # Fitur Bilangan Prima
+│   ├── hitung-berat-badan/       # Fitur BMI/IMT
+│   ├── hitung-ganjil-genap/      # Fitur Ganjil/Genap
+│   ├── home/                     # Halaman Utama
+│   ├── layout-dasar/             # Layout dasar
+│   ├── oprasi-hitung/            # Fitur Kalkulator
+│   ├── p6-detail/                # Detail Page
+│   ├── p7-storage/               # Penyimpanan Data Lokal
+│   ├── services/                 # Service (API calls, storage, dll)
+│   ├── app.routes.ts             # Routing config
+│   └── app.component.ts          # Root component
+├── assets/                       # Assets statis (icon, gambar, dll)
+├── environments/                 # Environment config (dev, prod)
+└── main.ts                       # Entry point aplikasi
+```
+
+### Build untuk Production
+```bash
+npm run build
+ionic capacitor build android --release
+ionic capacitor build ios --release
+```
+
+### Menjalankan Unit Tests
+```bash
+npm test
+```
+
+### Menjalankan E2E Tests
+```bash
+npm run e2e
+```
 
 
 ---

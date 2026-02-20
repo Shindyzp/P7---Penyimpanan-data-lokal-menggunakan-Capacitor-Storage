@@ -1,0 +1,71 @@
+:host {
+  --ion-background-color: #f4f5f7;
+}
+
+ion-toolbar {
+  --background: linear-gradient(90deg, #f12711, #f5af19);
+  --color: white;
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+ion-card-header {
+  padding-bottom: 8px;
+}
+
+ion-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin-top: 4px;
+}
+
+ion-input.sc-ion-input-md-h {
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --highlight-color-focused: #f12711;
+}
+
+.calculate-button {
+  --background: linear-gradient(90deg, #f12711, #f5af19);
+  --background-activated: #f12711;
+  --background-hover: #e05c10;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --border-radius: 10px;
+  height: 48px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+.result-card {
+  ion-list {
+    --ion-background-color: transparent;
+  }
+  ion-item {
+    --ion-background-color: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.result-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f12711;
+}

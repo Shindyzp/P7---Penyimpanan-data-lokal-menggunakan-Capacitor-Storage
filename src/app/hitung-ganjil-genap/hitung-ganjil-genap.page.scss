@@ -1,0 +1,142 @@
+:host {
+  --ion-background-color: #f4f5f7;
+}
+
+ion-toolbar {
+  --background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  --color: white;
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+ion-card-header {
+  padding-bottom: 8px;
+}
+
+ion-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin-top: 4px;
+}
+
+ion-input.sc-ion-input-md-h {
+  --border-radius: 10px;
+  --padding-start: 16px;
+  --highlight-color-focused: #8e2de2;
+}
+
+.check-button {
+  --background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  --background-activated: #8e2de2;
+  --background-hover: #9d4edd;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --border-radius: 10px;
+  height: 48px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.result-card {
+  --background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  padding-left: 10px; // Space for the colored border
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+  }
+
+  ion-card-content {
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+.result-card.genap {
+  &::before {
+    background-color: #8e2de2; // Purple for even (matches toolbar)
+  }
+  .result-main-text {
+    color: #8e2de2;
+  }
+}
+
+.result-card.ganjil {
+  &::before {
+    background-color: #ffc107; // Yellow for odd
+  }
+  .result-main-text {
+    color: #ffc107;
+  }
+}
+
+.result-main-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.result-description {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.result-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  ion-icon {
+    font-size: 4rem; // Ukuran ikon lebih besar
+    &.genap {
+      color: #28a745; // Hijau untuk genap
+    }
+    &.ganjil {
+      color: #ffc107; // Kuning/oranye untuk ganjil
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    
+    &.genap {
+      color: #28a745;
+    }
+    &.ganjil {
+      color: #ffc107;
+    }
+  }
+}
+
+.result-message {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin: 0;
+}

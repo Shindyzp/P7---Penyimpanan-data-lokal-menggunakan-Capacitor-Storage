@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ganjil atau Genap?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="input-card">
+    <ion-card-header>
+      <ion-card-title>Cek Bilangan</ion-card-title>
+      <p class="card-subtitle">Masukkan sebuah bilangan untuk menentukan apakah bilangan tersebut ganjil atau genap.</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        type="number"
+        label="Bilangan"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Contoh: 42"
+        [(ngModel)]="inputNumber"
+        (keyup.enter)="checkNumber()">
+      </ion-input>
+
+      <ion-button expand="block" (click)="checkNumber()" class="check-button ion-margin-top">
+        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+        Cek Sekarang
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="result-card" *ngIf="resultMessage" [ngClass]="resultType">
+    <ion-card-content>
+      <h2 class="result-main-text">{{ resultType === 'genap' ? 'GENAP' : 'GANJIL' }}</h2>
+      <p class="result-description">{{ resultMessage }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/daftar-mahasiswa"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profil Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="detail-container" *ngIf="detailMahasiswa">
+    <ion-card class="elegant-card">
+      <div class="avatar-section">
+        <div class="initials">{{ detailMahasiswa.nama[0] | uppercase }}</div>
+      </div>
+      <ion-card-header>
+        <ion-card-title>{{ detailMahasiswa.nama | titlecase }}</ion-card-title>
+        <p class="prodi-tag">Program Studi: {{ detailMahasiswa.prodi }}</p>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="info-row">
+          <span>ID Mahasiswa</span>
+          <strong>#00{{ detailMahasiswa.id }}</strong>
+        </div>
+        <div class="info-row">
+          <span>Status</span>
+          <ion-text color="success"><strong>Aktif</strong></ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

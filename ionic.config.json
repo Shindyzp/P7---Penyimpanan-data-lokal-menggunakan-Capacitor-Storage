@@ -1,0 +1,7 @@
+{
+  "name": "ionic-ui-components",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

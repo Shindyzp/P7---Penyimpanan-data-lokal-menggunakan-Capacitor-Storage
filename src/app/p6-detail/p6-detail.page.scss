@@ -1,0 +1,15 @@
+.elegant-card {
+  border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: none; overflow: hidden;
+  .avatar-section {
+    background: #4e73df; height: 100px; display: flex; justify-content: center; align-items: flex-end; padding-bottom: -30px;
+    .initials {
+      width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; 
+      justify-content: center; align-items: center; font-size: 2rem; font-weight: 800; color: #4e73df;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: -40px;
+    }
+  }
+  ion-card-header { margin-top: 40px; text-align: center; }
+  ion-card-title { font-weight: 800; color: #2d3436; }
+  .prodi-tag { color: #a0a0a0; margin: 5px 0; }
+  .info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #eee; }
+}

@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- Tombol Back -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>P7 Penyimpanan Data</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- FORM SECTION -->
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="stacked">Nama</ion-label>
+        <ion-input 
+          [(ngModel)]="nama" 
+          placeholder="Masukkan nama">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">NIM</ion-label>
+        <ion-input 
+          [(ngModel)]="nim"
+          type="tel"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="Masukkan NIM (angka saja)">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Jurusan</ion-label>
+        <ion-input 
+          [(ngModel)]="jurusan" 
+          placeholder="Masukkan jurusan">
+        </ion-input>
+      </ion-item>
+
+      <!-- Tombol Simpan / Update -->
+      <ion-button expand="block" (click)="simpanAtauUpdate()">
+        {{ editMode ? 'Update Data' : 'Simpan Data' }}
+      </ion-button>
+
+      <!-- Tombol batal saat edit -->
+      <ion-button 
+        *ngIf="editMode"
+        expand="block"
+        fill="outline"
+        color="medium"
+        (click)="resetForm()">
+        Batal Edit
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- LOADING -->
+  <p *ngIf="isLoading" style="text-align:center; margin-top: 10px;">
+    Memuat data...
+  </p>
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="!isLoading && dataMahasiswa.length === 0"
+       style="text-align:center; margin-top: 20px; color: gray;">
+    Belum ada data mahasiswa.
+  </div>
+
+  <!-- LIST SECTION -->
+  <ion-card *ngFor="let m of dataMahasiswa">
+    <ion-card-content>
+      <h2>{{ m.nama }}</h2>
+      <p>{{ m.nim }} - {{ m.jurusan }}</p>
+
+      <ion-button
+        fill="outline"
+        color="primary"
+        size="small"
+        (click)="editData(m)">
+        Edit
+      </ion-button>
+
+      <ion-button
+        fill="outline"
+        color="danger"
+        size="small"
+        (click)="hapus(m.id)">
+        Hapus
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- TOAST -->
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="toastMessage"
+    duration="2000"
+    (didDismiss)="isToastOpen = false">
+  </ion-toast>
+
+</ion-content>

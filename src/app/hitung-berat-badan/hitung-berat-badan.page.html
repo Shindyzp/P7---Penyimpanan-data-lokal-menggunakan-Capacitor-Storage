@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Berat Badan Ideal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="input-card">
+    <ion-card-header>
+      <ion-card-title>Kalkulator Berat Badan Ideal</ion-card-title>
+      <p class="card-subtitle">Masukkan tinggi badan dan jenis kelamin untuk menghitung berat badan ideal Anda menggunakan rumus Broca.</p>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Input Tinggi Badan -->
+      <ion-input
+        type="number"
+        label="Tinggi Badan (cm)"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Contoh: 170"
+        [(ngModel)]="height"
+        (keyup.enter)="calculateIdealWeight()">
+      </ion-input>
+
+      <!-- Pilihan Jenis Kelamin -->
+      <ion-radio-group [(ngModel)]="gender" class="ion-margin-top">
+        <ion-label class="gender-label">Jenis Kelamin</ion-label>
+        <div class="gender-options">
+          <ion-item>
+            <ion-radio value="pria" labelPlacement="end">Pria</ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="wanita" labelPlacement="end">Wanita</ion-radio>
+          </ion-item>
+        </div>
+      </ion-radio-group>
+
+      <!-- Tombol Hitung -->
+      <ion-button expand="block" (click)="calculateIdealWeight()" class="calculate-button ion-margin-top">
+        <ion-icon name="body-outline" slot="start"></ion-icon>
+        Hitung
+      </ion-button>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Kartu Hasil -->
+  <ion-card class="result-card" *ngIf="idealWeight !== null">
+    <ion-card-header>
+      <ion-card-title>Hasil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="result-value">{{ idealWeight }} kg</p>
+      <p class="result-label">Berat Badan Ideal Anda</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

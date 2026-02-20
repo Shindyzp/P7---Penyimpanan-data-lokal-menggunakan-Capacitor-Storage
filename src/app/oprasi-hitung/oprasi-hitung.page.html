@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Operasi Hitung</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="input-card">
+    <ion-card-header>
+      <ion-card-title>Kalkulator Dasar</ion-card-title>
+      <p class="card-subtitle">Masukkan dua bilangan untuk melakukan operasi matematika dasar.</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        type="number"
+        label="Angka Pertama"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Contoh: 10"
+        [(ngModel)]="number1">
+      </ion-input>
+
+      <ion-input
+        class="ion-margin-top"
+        type="number"
+        label="Angka Kedua"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Contoh: 5"
+        [(ngModel)]="number2">
+      </ion-input>
+
+      <ion-button expand="block" (click)="calculate()" class="calculate-button ion-margin-top">
+        <ion-icon name="calculator-outline" slot="start"></ion-icon>
+        Hitung
+      </ion-button>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Kartu Hasil -->
+  <ion-card class="result-card" *ngIf="results">
+    <ion-card-header>
+      <ion-card-title>Hasil Perhitungan</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Penjumlahan (+)</ion-label>
+          <div slot="end" class="result-value">{{ results.addition }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pengurangan (-)</ion-label>
+          <div slot="end" class="result-value">{{ results.subtraction }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>Perkalian (×)</ion-label>
+          <div slot="end" class="result-value">{{ results.multiplication }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pembagian (÷)</ion-label>
+          <div slot="end" class="result-value">{{ results.division }}</div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

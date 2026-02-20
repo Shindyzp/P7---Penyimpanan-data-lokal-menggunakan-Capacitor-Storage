@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Daftar Mahasiswa</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar 
+      placeholder="Cari nama mahasiswa..." 
+      (ionInput)="handleInput($event)"
+      class="custom-searchbar">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="list-header">
+    <h2>Ditemukan <span>{{ results.length }}</span> Mahasiswa</h2>
+  </div>
+
+  <ion-list lines="none" class="elegant-list">
+    <ion-item 
+      *ngFor="let mhs of results" 
+      [routerLink]="['/p6-detail', mhs.id]"
+      detail="false"
+      class="student-item">
+      
+      <div slot="start" class="initial-avatar" [style.background-color]="getRandomColor(mhs.nama)">
+        {{ mhs.nama[0] | uppercase }}
+      </div>
+
+      <ion-label>
+        <h3>{{ mhs.nama | titlecase }}</h3>
+        <p>ID: #00{{ mhs.id }} • {{ mhs.prodi }}</p>
+      </ion-label>
+
+      <ion-icon name="chevron-forward-outline" slot="end" class="arrow-icon"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="results.length === 0" class="no-results ion-padding ion-text-center">
+      <p>Mahasiswa tidak ditemukan.</p>
+    </div>
+  </ion-list>
+</ion-content>

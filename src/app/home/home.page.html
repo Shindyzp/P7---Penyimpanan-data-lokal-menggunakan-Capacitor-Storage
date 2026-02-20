@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>My Workspace</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon name="sparkles-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header-container">
+    <div class="welcome-text">
+      <h1>Halo, Selamat Datang! 👋</h1>
+      <p>Pilih alat yang ingin Anda gunakan hari ini.</p>
+    </div>
+  </div>
+
+  <div class="menu-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" *ngFor="let item of menuItems">
+          
+          <ion-card 
+            button 
+            [routerLink]="item.path" 
+            class="glass-card"
+            [style.--card-accent]="item.color">
+            
+            <ion-card-content>
+              <div class="inner-card">
+                <div class="icon-wrapper">
+                  <ion-icon [name]="item.icon"></ion-icon>
+                </div>
+                
+                <div class="content-wrapper">
+                  <ion-text color="dark">
+                    <h3>{{ item.title }}</h3>
+                  </ion-text>
+                  <ion-text color="medium">
+                    <p>{{ item.description }}</p>
+                  </ion-text>
+                </div>
+
+                <div class="action-wrapper">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div>
+              </div>
+            </ion-card-content>
+            
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- Tombol Back -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>About</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- PROFILE SECTION -->
+  <ion-card>
+    <ion-card-content class="profile-container">
+
+      <div class="profile-image">
+        <img src="assets/profil.png" alt="Foto Profil" />
+      </div>
+
+      <h2>{{ nama }}</h2>
+      <p>NIM: {{ nim }}</p>
+      <p>{{ prodi }}</p>
+      <p>{{ universitas }}</p>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- INFO SECTION -->
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item lines="none">
+        <ion-label>
+          <strong>Mata Kuliah:</strong><br>
+          {{ mataKuliah }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <strong>Dosen Pengampu:</strong><br>
+          {{ dosen }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <strong>Semester:</strong><br>
+          {{ semester }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <strong>Versi Aplikasi:</strong><br>
+          {{ versiAplikasi }}
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
